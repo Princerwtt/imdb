@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Princerwtt/imdb-done/static/css/main.66b4da5c.css",
+    "main.js": "/Princerwtt/imdb-done/static/js/main.bfc19a48.js",
+    "index.html": "/Princerwtt/imdb-done/index.html",
+    "main.66b4da5c.css.map": "/Princerwtt/imdb-done/static/css/main.66b4da5c.css.map",
+    "main.bfc19a48.js.map": "/Princerwtt/imdb-done/static/js/main.bfc19a48.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.66b4da5c.css",
+    "static/js/main.bfc19a48.js"
+  ]
+}
