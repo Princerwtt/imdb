@@ -4,18 +4,21 @@ import { Link } from 'react-router-dom';
 import './styles.css';
 
 const Cards = () => {
-  const [movies, setMovies] = useState([]);
-  const [selectedMovie, setSelectedMovie] = useState(null);
+  // State variables
+  const [movies, setMovies] = useState([]); // Stores the movie data
+  const [selectedMovie, setSelectedMovie] = useState(null); // Stores the currently selected movie
 
+  // Fetch movies data from API when component mounts
   useEffect(() => {
     fetch(
       'https://api.themoviedb.org/3/movie/popular?api_key=ebab107d0e771faee711646843039664&language=en-US'
     )
-      .then((response) => response.json())
-      .then((data) => setMovies(data.results))
-      .catch((error) => console.log(error));
+      .then((response) => response.json()) // Convert response to JSON
+      .then((data) => setMovies(data.results)) // Set the movies state with the fetched data
+      .catch((error) => console.log(error)); // Log any errors that occur during the fetch
   }, []);
 
+  // Handle click event when a movie is selected
   const handleClick = (movie) => {
     setSelectedMovie(movie);
   };
@@ -24,11 +27,12 @@ const Cards = () => {
     <div>
       <h1>Popular Movies</h1>
       <div className="movie-list">
+        {/* Map over the movies array and create a Link for each movie */}
         {movies.map((movie) => (
           <Link
-            key={movie.id}
-            to={`/movie/${movie.id}`}
-            onClick={() => handleClick(movie)}
+            key={movie.id} // Set the unique key for each movie
+            to={`/movie/${movie.id}`} // Link to the movie details page
+            onClick={() => handleClick(movie)} // Set the selected movie when clicked
             className="cards"
           >
             <div className="movie-overlay">

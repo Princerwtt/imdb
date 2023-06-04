@@ -8,18 +8,18 @@ const MovieList = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=ebab107d0e771faee711646843039664&language=en-US%60`)
-      .then((res) => res.json(),{
+    fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=ebab107d0e771faee711646843039664&language=en-US%60`) //fetching api 
+      .then((res) => res.json(), {
         
       })
       .then((data) => {
-        setMovie(data);
+        setMovie(data); //store data in setMovies
         console.log(data);
       })
       .catch((error) => {
         console.error(error);
       });
-  }, [id]);
+  }, [id]); //passing id to avoid infinite fetching loop
 
   return (
     <div className='movie-list-item'>
@@ -40,7 +40,6 @@ const MovieList = () => {
       <div className='tag'>{movie ? movie.tagline : ''}</div>
       <div className='releaseDate'>Release Date: {movie ?  movie.release_date : ''}</div>
     </div>
-    
   );
 };
 
