@@ -12,7 +12,7 @@ function App() {
        <Navigation/>
        <Routes>
              <Route path='/' element={<Home/>}/>     
-             <Route path='/movie/:id' element={<MovieList  />}/>
+             <Route path='/movie/:id' element={<MovieList/>}/>
              <Route path='/*' element={<h1>This is error Page</h1>}/>
        </Routes>
     </BrowserRouter>

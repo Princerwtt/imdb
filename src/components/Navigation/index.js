@@ -44,6 +44,7 @@ function Index() {
         <div className="log-name">
           {/* Display user name if authenticated */}
           {isAuthenticated && <div>{"Welcome " + user.name}</div>}
+          {console.log(user)}
         </div>
         {isAuthenticated ? (
           <div>

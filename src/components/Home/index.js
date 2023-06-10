@@ -1,38 +1,38 @@
 import React, { useEffect, useState } from "react";
-import "./style.css";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { Carousel } from 'react-responsive-carousel'; //importing third party component
-
 import { Link } from "react-router-dom";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import "./style.css";
 import Cards from "../Cards";
 
 const Home = () => {
-  // State variable
   const [popularMovies, setPopularMovies] = useState([]);
 
-  // Fetch popular movies data from API when component mounts
   useEffect(() => {
-    fetch("https://api.themoviedb.org/3/movie/popular?api_key=ebab107d0e771faee711646843039664&language=en-US")
-      .then(res => res.json()) // Convert response to JSON
-      .then(data => setPopularMovies(data.results)) // Set the popular movies state with the fetched data
-      .catch(error => console.error('Error fetching popular movies:', error)); // Log any errors that occur during the fetch
+    fetch(
+      "https://api.themoviedb.org/3/movie/popular?api_key=ebab107d0e771faee711646843039664&language=en-US"
+    )
+      .then((res) => res.json())
+      .then((data) => setPopularMovies(data.results))
+      .catch((error) =>
+        console.error("Error fetching popular movies:", error)
+      );
   }, []);
 
   return (
     <div className="poster">
-      <Carousel //using third party component
+      <Carousel
         showThumbs={false}
         autoPlay={true}
         transitionTime={3}
         infiniteLoop={true}
         showStatus={false}
       >
-        {/* Map over the popularMovies array and create a Link for each movie */}
-        {popularMovies.map(movie => (
+        {popularMovies.map((movie) => (
           <Link
-            key={movie.id} // Set the unique key for each movie
+            key={movie.id}
             style={{ textDecoration: "none", color: "white" }}
-            to={`/movie/${movie.id}`} // Link to the movie details page
+            to={`/movie/${movie.id}`}
           >
             <div className="posterImage">
               <img
@@ -54,7 +54,7 @@ const Home = () => {
           </Link>
         ))}
       </Carousel>
-      <Cards /> {/* Render the Cards component */}
+      <Cards />
     </div>
   );
 };
