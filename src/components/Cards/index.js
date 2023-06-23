@@ -17,6 +17,8 @@ const Cards = () => {
       .then((data) => setMovies(data.results)) // Set the movies state with the fetched data
       .catch((error) => console.log(error)); // Log any errors that occur during the fetch
   }, []);
+  console.log(selectedMovie)
+
 
   // Handle click event when a movie is selected
   const handleClick = (movie) => {
